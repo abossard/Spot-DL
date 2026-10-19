@@ -83,8 +83,6 @@ class ZeroconfServer(Closeable):
                     socket.gethostbyname(self.get_useful_hostname()))
             ])
         self.__zeroconf.register_service(self.__service_info)
-        threading.Thread(target=self.__zeroconf.start,
-                         name="zeroconf-multicast-dns-server").start()
 
     def add_session_listener(self, listener: ZeroconfServer):
         self.__session_listeners.append(listener)
